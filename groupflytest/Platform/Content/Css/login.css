@@ -1,0 +1,94 @@
+﻿*{padding:0;margin:0;}
+.containers{ padding: 0;margin: 0px ;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image:url('../Css/images/login_center_bg.jpg'); 
+    background-position: 0% 10%;
+    background-origin:content-box;
+    background-repeat:no-repeat;
+    background-size:cover;
+    font: 14px/1.5 'Microsoft Yahei',Arial,Helvetica,sans-serif;
+    zoom:1;
+    min-width: 984px;
+    min-height: 500px; font:12px/1.5 tahoma,arial,Hiragino Sans GB,\5b8b\4f53;color:#666;}
+img{ border:0;}
+.input-minlus{width:40px;}
+.input-mini{width: 60px;}  
+.input-small{width:90px;}  
+.input-medium{width: 150px;}  
+.input-large{width: 210px;}  
+.input-xlarge{width: 270px;}  
+.input-xxlarge{width: 530px;}
+.login{width:985px;margin:154px auto 0;height:373px; position:relative;}
+.login-con{border-radius: 5px; overflow: hidden;box-shadow: 0 5px 10px 5px #396f9c;}
+.banner{width:600px;height:340px; float:left;}
+.gap{ position:absolute;top:44px; left:380px;}
+.container{width:385px;background:#fff; height:340px; float:right;}
+.container table tr td{ padding:8px 0;line-height:32px;}
+.container table tr td input{ border:1px solid #e1e1e1;width:225px;height:20px; padding:5px;}
+.container table tr td input.j-text{ width:119px;margin-right:6px;}
+.container table tr td input.logBtn{height: 40px;display: inline-block;border-radius: 3px;line-height: 40px;text-align: center; font-size:20px; padding:0; cursor:pointer;}
+.container table tr td input.logins{outline: none;color: #5b5b5b;width:95px;border: solid 1px #dcdcdc;background: #f5f5f5;}
+.container table tr td input.login02{width: 236px;color: #fff;background: #2d6aa1;border:0;}
+.container table tr td input,.container table tr td img,.container table tr td a.img-new{ display:inline-block; vertical-align:middle;}
+.container table tr td.title{width:80px;  text-align:right; font-size:14px; padding-right:20px; font-family:'Microsoft YaHei';}
+.container table tr td.title.j-distance{letter-spacing:12px;position: relative;left: 10px;}
+.container table tr td a.check-on{ width:77px;height:60px; background:url(../images/login_qc_btn.png) 0 0 no-repeat; display:block; text-indent:-9999em;}
+.container table tr td a.check-on:hover{ background-position:0 -60px;}
+.container table tr td input.input-mini{width:60px;}
+.container table tr td a.img-new{ text-decoration:none;color:#1d76b2;}
+.container table tr td a.img-new:hover{ text-decoration:underline;}
+
+input.input-validation-error, select.input-validation-error {
+    background-color: #FFEEEE;
+    border: 1px solid #FF0000;
+}
+input[type="text"], input[type="password"] {
+    height: 16px;
+    padding: 2px;
+}
+input[type="text"], input[type="password"], textarea {
+    border: 1px solid #CCCCCC;
+}
+.field-validation-error {
+    background:#fff6db url("../images/icons.png") no-repeat scroll 5px -266px;
+    color: #f0ad4e;
+    margin-bottom: -3px;
+    padding:3px 5px;
+    font-size:14px;
+    border:#fdce8b 1px solid; border-radius:5px;
+    width:225px; text-indent:24px;
+}
+
+.bomb-box{ position:absolute;left: 100px;top: -56px; display:none; padding-left:6px; z-index:999;}
+.bomb-box .box-img{ background:#fff; padding:6px;box-shadow: 0 1px 1px 1px #76b7c7;}
+.bomb-box em{ position:absolute; left:-3px; top:80px; background:url(../images/arrow.png) no-repeat; width:10px; height:12px;}
+.bomb-box .box-img span{ text-align:center; font-family:Microsoft YaHei; color:#666;display: block; white-space:nowrap;}
+.j-choice{ height:120px; width:100%; margin-top:200px; }
+.j-choice ul{ width:655px; margin:0 auto;}
+.j-choice li{ position:relative; top:-60px; width:100px; margin-right:177px; float:left;list-style-type:none;}
+.j-choice li.j-wechat{ margin-right:0px;}
+.j-choice  .down{position: relative;top: -3px;} 
+.j-choice .down .size{position:absolute; left:26%; top:-10px; color:#fff; font:16px 'Microsoft YaHei';}
+.j-choice .down .size.distance{ left:20%;}
+.j-choice .down .size.far{ left:35%;}
+.reflection,.reflection1,.reflection2{width:100px;height:40px;} 
+.j-copyright{ text-align:center; font:14px/25px 'Microsoft YaHei'; color:#253f72; margin-top: 50px;}
+.j-logo-img{ margin-bottom:20px;}
+.j-login-title{width: 385px;height: 45px;line-height: 45px;background: #0e3d67 url(../Css/Images/arrow1.png) 20px center no-repeat;font-size: 18px;color: #FFF;text-indent: 50px; font-family:'microsoft yahei';}
+#errorMessage {  display:block; font:14px/32px microsoft yahei;}
+.prompt { background:#fff6db url(../Css/Images/prompt-icon.png) no-repeat 8px center; border:1px solid #fdce8b; border-radius:3px; color:#f0ad4e; padding-left:30px;  width:205px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

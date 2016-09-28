@@ -1,0 +1,30 @@
+﻿@model GroupflyGroup.Platform.Web.Models.BaseViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/index.css">
+    
+    @RenderSection("css", false)
+    <script type="text/javascript" src="~/Platform/Content/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Platform/Content/Scripts/jquery.table2excel.js"></script>
+    <script type="text/javascript" src="~/Platform/Content/Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="~/Platform/Content/Scripts/x-tag-core.min.js"></script>
+    <script type="text/javascript" src="~/Platform/Content/Scripts/site.js"></script>
+    <script type="text/javascript" src="~/Platform/Content/Scripts/customelement.js"></script>
+    @Html.Raw(Model.UIExtensionSection)
+    <script type="text/javascript" src="~/Platform/Content/Scripts/Boot.js"></script>
+    @RenderSection("scripts", false)
+</head>
+    <body class="easyui-layout" is="gf-page" editurl="@Url.Action("ObjektEdit", "Platform")" dataurl="@Url.Action("ObjektView", "Platform")">
+        @RenderBody()
+    </body>
+</html>

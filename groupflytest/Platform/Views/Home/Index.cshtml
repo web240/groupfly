@@ -1,0 +1,87 @@
+﻿@using GroupflyGroup.Platform.ObjectFramework.Persistence
+@model GroupflyGroup.Platform.Web.Models.HomeIndexViewModel
+@{
+    ViewBag.Title = "平台首页";
+    Layout = "~/Platform/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        var menus = JSON.parse('@Html.Raw(Model.MenusJson)');
+
+        function loadAccordion(id) {
+            $(menus).each(function() {
+                if (this.id == id) {
+                    this.accordion.show();
+                } else {
+                    this.accordion.hide();
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            $(menus).each(function() {
+                var accordionDiv = document.createElement("div");
+                $(accordionDiv).css("border-bottom-width", "0");
+                $("#westDiv").append(accordionDiv);
+                $(accordionDiv).accordion();
+
+                $(this.children).each(function() {
+                    var tree = document.createElement("Gf-Tree");
+                    tree.paddingleft = 28;
+                    tree.hidefoldericon = true;
+                    tree.id = this.id;
+                    tree.data = JSON.stringify(this.children).replace(new RegExp(/(")/g), '\'');
+                    tree.click = "function (node) {  if (node.url) { document.body.openPage(node.id, node.url, node.text); } }";
+
+                    $(accordionDiv).accordion('add', {
+                        title: '<span class="LeftMenuIcon ' + this.iconCls + '" ></span>' + this.text,
+                        content: tree.outerHTML,
+                        selected: false
+                    });
+                    $(accordionDiv).find(".panel-title").removeClass("panel-title").addClass("accordion-title");
+                });
+                $(accordionDiv).hide();
+                this["accordion"] = $(accordionDiv);
+            });
+        });
+    </script>
+}
+
+<!--头部-->
+<div data-options="region:'north'" id="Header" class="clearfix">
+    <div class="logo fl"><img src="~/Platform/Content/Css/images/platlogo.png" alt="" /></div>
+    <div class="TopNav fl">
+        <ul class="nav">
+            @{
+                foreach (var menu in Model.Menus)
+                {
+                    <li><a href="javascript:void(0);" onclick="loadAccordion('@menu.id.Replace("@", "-")');">
+                        <em>
+                            <span class="TopMemuIcon @menu.iconCls"></span>@*<img src="~/Platform/Content/Css/images/topnav-icon.png" />*@
+                        </em>
+                        @menu.text
+                    </a></li>
+                }
+            }
+        </ul>
+
+    </div>
+    <div class="TopMem fr">您好，@SessionContext.Current.User.CombinedLabel！<a href="@Url.Action("LogOut", "Login")">[退出]</a></div>
+</div>
+
+<!--左侧菜单-->
+<div data-options="region:'west',title:'主菜单',split:false,collapsible:true" class="LeftMenu">
+    <div class="" id="westDiv"></div>
+
+</div>
+
+<!--内容-->
+<div data-options="region:'center'">
+    <div id="frametabs" is="gf-tabs" closable fit></div>
+</div>
+
+<!--脚部-->
+<div data-options="region:'south'" class="Footer">
+    Powered by  ShopNum1  V8.4.0 © 2002-2016, GroupFly Inc.
+</div>

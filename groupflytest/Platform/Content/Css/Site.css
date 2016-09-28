@@ -1,0 +1,36 @@
+﻿
+.iconfont {
+    color: black;
+    font-size: 14px;
+    padding: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.TopMemuIcon {
+    font-size: 22px; 
+    padding: 5px;
+}
+
+.LeftMenuIcon {
+    font-size: 15px;  margin-right:8px;
+}
+
+#westDiv .accordion-title{
+   font:bold 12px/20px microsoft yahei; color:#333; height:20px; 
+}
+
+.editflag {
+    background-image: url(../Css/icons/ext.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+
+

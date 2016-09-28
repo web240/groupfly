@@ -1,0 +1,16 @@
+﻿@using GroupflyGroup.Platform.Web.Common
+@model GroupflyGroup.Platform.Web.Models.FileCollectionViewModel
+
+<div class="easyui-layout" style="width: 99%; height: 99%;">
+    <div data-options="region:'west',title:'文件目录',split:false,collapsible:true" style="width: 200px; padding: 2px;">
+        <Gf-Tree data="@Html.Raw(Model.FileModels.ObjectToJson().Replace("\"", "'"))"
+                 click="function(node){ 
+                 var grid = $(node.target).closest('.easyui-layout').find('gf-datagrid')[0];
+                 grid.queryData([{  field: 'pathName', type: '{', value: node.pathName }]);
+                  }" ></Gf-Tree>
+    </div>
+
+    <div data-options="region:'center'" style="padding: 2px; background: #eee;">
+        @this.GfDataGrid(Model)
+    </div>
+</div>

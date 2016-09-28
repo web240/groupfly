@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "登录";
+    Layout = "~/Platform/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+    <link rel="stylesheet" type="text/css" href="~/Platform/Content/Css/login.css">
+}
+@section scripts
+{
+    <script type="text/javascript" src="~/Platform/Content/Scripts/MD5.js"></script>
+    <script type="text/javascript">
+        function loginSubmit() {
+            $("#errorMessage").removeClass("prompt");
+            $("#errorMessage").html('<i class="fa fa-spinner fa-pulse fa-fw"></i>  <span>登录中...</span>');
+            $("#errorMessage").show();
+            var loginname = $("#UserName").val();
+            var password = $("#Password").val();
+            if (!loginname || !password) {
+                showMessage("用户名和密码必填");
+                return;
+            }
+                
+            platformAjax({
+                url: '@Url.Action("LoginSubmit", "Login")',
+                data: { loginname: loginname, password: hex_md5(password) },
+                success: function (result) {
+                    window.location.href = '@Url.Action("Index","Home")';
+                },
+                fail: function (result) {
+                    showMessage(result.Message);
+                },
+                error: function (result) {
+                    showMessage(result.statusText);
+                }
+            });
+        }
+
+        function showMessage(message) {
+            $("#errorMessage").addClass("prompt");
+            $("#errorMessage").html(message);
+            $("#errorMessage").show();
+        }
+    </script>
+}
+
+<div class="containers" onkeypress="if (event.keyCode == 13) { loginSubmit(); }">
+    <div class="login">
+        <div class="j-logo-img"><img src="~/Platform/Content/Css/images/logo.png"  alt="" /></div>
+        <div class="login-con">
+            <div class="banner">
+                <img src="~/Platform/Content/Css/images/login_banner.png" width="600" height="340" alt="" />
+            </div>
+            <div class="container">
+                <div class="j-login-title">请登录</div>
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 12px;">
+                    <tbody>
+                        <tr>
+                            <td class="title"></td>
+                            <td>
+                                <span id="errorMessage" style="display: none;"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">
+                                用户名
+                            </td>
+                            <td>
+                                <input type="text" id="UserName" name="UserName" maxlength="32" tabindex="1" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title j-distance">
+                                密码
+                            </td>
+                            <td>
+                                <input id="Password" name="Password" type="password" maxlength="32" tabindex="2" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="title">
+                                &nbsp;
+                            </td>
+                            <td>
+                                <input type="button" class="logBtn login02" value="登 录" onclick="loginSubmit();" id="LoginSys" tabindex="3">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

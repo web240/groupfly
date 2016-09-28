@@ -1,0 +1,17 @@
+﻿@using GroupflyGroup.Platform.ObjectFramework;
+@using GroupflyGroup.License;
+@using GroupflyGroup.Platform.ObjectFramework.Utils
+@model GroupflyGroup.Platform.Web.Models.ObjektViewModel
+<form onsubmit="return false;">
+    <div style="width: 98%; margin: 10px; line-height: 30px;">
+        @{
+            Model.Properties.ForEach(o =>
+            {
+                if (!o.Hidden)
+                {
+                    Html.RenderPartial("../Shared/_PropertyView", o);
+                }
+            });
+        }
+    </div>
+</form>
