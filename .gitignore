@@ -8,3 +8,7 @@
 /packages
 /groupflytest/bin
 /groupflytest/obj/Debug
+/WebAppTest/obj/Debug
+/WebAppTest/bin
+/WebMvcTest1/bin
+/WebMvcTest1/obj/Debug
